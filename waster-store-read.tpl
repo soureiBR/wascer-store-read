@@ -106,7 +106,7 @@ function getHost() {
   return (
     host +
     '/get?document_key=' +
-    documentId
+    documentKey
   );
 }
 
