@@ -1,4 +1,4 @@
-﻿___INFO___
+___INFO___
 
 {
   "type": "MACRO",
@@ -106,7 +106,7 @@ function getHost() {
   return (
     host +
     '/get?document_key=' +
-    documentKey
+    documentId
   );
 }
 
