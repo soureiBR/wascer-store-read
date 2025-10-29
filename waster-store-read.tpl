@@ -76,10 +76,10 @@ return request.then((response) => {
     }
   } else {
     logToConsole('document', response.statusCode);
-    return 'REQUEST_FAILED_NO_VALUE';
+    return undefined;
   }
 }).catch((error) => {
-  return 'NETWORK_ERROR';
+  return undefined;
 });
 
 function mapResponse(bodyString) {
