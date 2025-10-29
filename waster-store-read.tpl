@@ -72,7 +72,7 @@ return request.then((response) => {
       return value;
     } else {
       logToConsole('No fields in response');
-      return 'NO_FIELDS';
+      return undefined;
     }
   } else {
     logToConsole('document', response.statusCode);
