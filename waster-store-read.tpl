@@ -101,10 +101,10 @@ function mapResponse(bodyString) {
 }
 
 function getHost() {
-  const host = getRequestHeader('x-url-api') || '';
+  const identifier = getRequestHeader('x-container-identifier') || '';
 
   return (
-    host +
+    identifier + '.soureicdn.com/database' +
     '/get?document_key=' +
     documentKey
   );
