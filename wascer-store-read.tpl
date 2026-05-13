@@ -4,8 +4,8 @@ ___INFO___
   "type": "MACRO",
   "id": "cvt_NS4CZ",
   "version": 1,
-  "displayName": "Waster Store Read",
-  "description": "The value is set to the value from a key in a Waster Store document.",
+  "displayName": "Wascer Store Read",
+  "description": "The value is set to the value from a key in a Wascer Store document.",
   "containerContexts": [
     "SERVER"
   ],
@@ -37,6 +37,13 @@ ___TEMPLATE_PARAMETERS___
         "type": "NON_EMPTY"
       }
     ]
+  },
+  {
+    "type": "TEXT",
+    "name": "collection",
+    "displayName": "Collection (optional)",
+    "simpleValueType": true,
+    "help": "Collection name to read from. Leave empty to use 'default'."
   }
 ]
 
@@ -53,6 +60,7 @@ const encodeUriComponent = require('encodeUriComponent');
 
 const documentId = data.documentId;
 const documentKey = data.documentKey;
+const collection = data.collection ? data.collection : 'default';
 const url = getHost();
 
 const request = sendHttpRequest(url, {
@@ -105,8 +113,10 @@ function getHost() {
 
   return (
     host +
-    '/get?document_key=' +
-    documentId
+    '/database/get?document_key=' +
+    encodeUriComponent(documentId) +
+    '&collection=' +
+    encodeUriComponent(collection)
   );
 }
 
@@ -310,5 +320,3 @@ scenarios: []
 ___NOTES___
 
 Created on 24/01/2024, 14:06:55
-
-
