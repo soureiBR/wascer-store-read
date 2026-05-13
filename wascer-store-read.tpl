@@ -113,7 +113,7 @@ function getHost() {
 
   return (
     host +
-    '/database/get?document_key=' +
+    '/get?document_key=' +
     encodeUriComponent(documentId) +
     '&collection=' +
     encodeUriComponent(collection)
